@@ -1,12 +1,23 @@
 @import "tailwindcss";
 
+/* ===== Custom Properties — Retro-themed light palette ===== */
 :root {
-  --color-primary: #000000;
-  --color-secondary: #FFFFFF;
-  --color-accent: #3B82F6;
-  --color-background: #FFFFFF;
+  --color-primary: #3b82f6;
+  --color-secondary: #64748b;
+  --color-accent: #06b6d4;
+  --color-background: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+  --color-error: #ef4444;
+  --color-success: #10b981;
+  --color-border: #e5e7eb;
+  --color-muted: #9ca3af;
+  --radius: 0.625rem;
+  --shadow-retro: 4px 4px 0px 0px rgba(0, 0, 0, 0.1);
+  --shadow-retro-lg: 6px 6px 0px 0px rgba(0, 0, 0, 0.12);
 }
 
+/* ===== Base Reset ===== */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -18,9 +29,143 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: var(--color-background);
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
+}
+
+/* ===== Retro-Themed Utility Classes ===== */
+.retro-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-retro);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.retro-card:hover {
+  box-shadow: var(--shadow-retro-lg);
+  transform: translate(-1px, -1px);
+}
+
+.retro-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.retro-btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: #2563eb;
+  box-shadow: 3px 3px 0px 0px #2563eb;
+}
+.retro-btn-primary:hover {
+  background: #2563eb;
+  box-shadow: 1px 1px 0px 0px #1d4ed8;
+  transform: translate(2px, 2px);
+}
+
+.retro-btn-accent {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: #0891b2;
+  box-shadow: 3px 3px 0px 0px #0891b2;
+}
+.retro-btn-accent:hover {
+  background: #0891b2;
+  box-shadow: 1px 1px 0px 0px #0e7490;
+  transform: translate(2px, 2px);
+}
+
+.retro-btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-secondary);
+  border-color: var(--color-border);
+  box-shadow: 3px 3px 0px 0px var(--color-border);
+}
+.retro-btn-secondary:hover {
+  background: #f1f5f9;
+  box-shadow: 1px 1px 0px 0px var(--color-border);
+  transform: translate(2px, 2px);
+}
+
+.retro-btn-danger {
+  background: var(--color-error);
+  color: #fff;
+  border-color: #dc2626;
+  box-shadow: 3px 3px 0px 0px #dc2626;
+}
+.retro-btn-danger:hover {
+  background: #dc2626;
+  box-shadow: 1px 1px 0px 0px #b91c1c;
+  transform: translate(2px, 2px);
+}
+
+.retro-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color 0.15s ease;
+}
+.retro-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.retro-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  border: 2px solid;
+}
+
+.page-header {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  border-bottom: 3px solid var(--color-primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Scrollbar Retro Styling ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
 }

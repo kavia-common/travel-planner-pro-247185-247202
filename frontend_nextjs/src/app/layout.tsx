@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
-  title: "Minimal Next.js App",
-  description: "Ultra-minimal Next.js application",
+  title: "Travel Planner Pro",
+  description: "Plan your trips with a retro twist — itineraries, budgets, packing & more.",
 };
 
+// PUBLIC_INTERFACE
+/** Root layout wrapping all pages with the navigation bar. */
 export default function RootLayout({
   children,
 }: {
@@ -14,7 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
-        {children}
+        <Navigation />
+        <main className="mx-auto max-w-7xl px-4 py-6">{children}</main>
       </body>
     </html>
   );
